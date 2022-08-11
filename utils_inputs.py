@@ -39,18 +39,19 @@ def get_file_version_size() -> tuple:
   while True:
     print("There are 3 data orders and 5 file sizes to sort choose from.")
     print()
-    print('First, choose a data order (Enter 1, 2, or 3):')
-    data_order = input('(1) Ascending, (2) Descending, (3) Random: ')
+    print('First, choose a data order (Enter A, D, or R):')
+    data_order = input('(A) Ascending, (D) Descending, (R) Random: ')
+    data_order = data_order.upper()
     print()
-    if data_order == '1':
+    if data_order == 'A':
       print('You chose Ascending.')
       print()
       break
-    elif data_order == '2':
+    elif data_order == 'D':
       print('You chose Descending.')
       print()
       break
-    elif data_order == '3':
+    elif data_order == 'R':
       print('You chose Random.')
       print()
       break
@@ -91,16 +92,16 @@ def get_file_version_size() -> tuple:
   return data_order, file_size
 
 
-def get_file_name(data_order: int, file_size: int) -> str:
+def get_file_name(data_order: str, file_size: int) -> str:
   """This function returns the file name to sort.
   Input: data_order, file_size (from get_file_version_size)
   Output: file_name"""
 
-  if data_order == '1':
+  if data_order == 'A':
     filename = 'ascending_' + str(file_size) + '.txt'
-  elif data_order == '2':
+  elif data_order == 'D':
     filename = 'descending_' + str(file_size) + '.txt'
-  elif data_order == '3':
+  elif data_order == 'R':
     filename = 'random_' + str(file_size) + '.txt'
   else:
     print('Invalid Inputs.')

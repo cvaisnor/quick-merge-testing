@@ -1,26 +1,57 @@
 """This is the script containing the partitioning functions."""
 
 
-def partition_left(array: list, leftindex: int, rightindex: int) -> int:
+def partition_left(array: list, leftindex: int, rightindex: int) -> tuple:
   """(Type 1) The pivot is selected as the first item of each partition.
   Input: array, leftindex, rightindex
   Output: new pivot index"""
+
+  comparison_count = 0
+  swap_count = 0
 
   pivot = array[leftindex]
 
   i = leftindex + 1
   for j in range(leftindex + 1, rightindex + 1):
+    # keep track of comparisons
+    comparison_count += 1
 
     if array[j] < pivot:
+      # keep track of swaps
+      swap_count += 1
       array[i], array[j] = array[j], array[i]
       i += 1
 
+  array[leftindex], array[i-1] = array[i-1], array[leftindex]
+  swap_count += 1
 
-  leftendval = array[leftindex]
-  array[leftindex] = array[i-1]
-  array[i-1] = leftendval
+  pivot_index = i - 1
 
-  return i - 1
+  return pivot_index, comparison_count, swap_count
+
+
+def insertion_sort(array: list, leftindex: int, rightindex: int) -> tuple:
+  """This function sorts the array using the insertion sort algorithm.
+  This is only used for the quicksort algorithm Type 2 and Type 3."""
+  
+  comparison_count = 0
+  swap_count = 0
+  
+  for i in range(leftindex + 1, rightindex + 1):
+    j = i
+    while j > leftindex:
+      # keep track of comparisons
+      comparison_count += 1
+      
+      if array[j] < array[j-1]:
+        # swap the values
+        swap_count += 1
+        array[j], array[j-1] = array[j-1], array[j]
+        j -= 1
+      else:
+        break
+
+  return array, comparison_count, swap_count
 
 
 
