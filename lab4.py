@@ -5,19 +5,34 @@
 # IDE: VS Code
 # Python Version: 3.8.10
 
-from sorting_functions import *
+from partition_types import partition_left
+from quicksort_types import quicksort_first
+from utils import verify_sorted
 
 def main():
   """This is the main function for the program."""
 
   # array of random numbers
-  array = [5,7,2,9,1,3,4,6,8]
-  start=0
-  end=len(array)-1
+  array = [1,7,2,5,9,3,4,6,8]
+  left=0
+  right=len(array)-1
 
+  # print original array
+  print("Original array:", array)
 
-  # partition the array around the pivot
-  pivot = partition_v1(array, start, end)
+  # quick sort the array using the first item as the pivot
+  sorted_array = quicksort_first(array, left, right)
+
+  # print the sorted array
+  print('Sorted Array:', sorted_array)
+
+  # verify the array is sorted
+  sorted = verify_sorted(sorted_array)
+
+  if sorted:
+    print("The array is sorted.")
+  else:
+    print("The array is not sorted.")
 
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 """This script creates the input files for the sorting algorithms.
 The 15 files are defined as follows:
 
-    4 size files: 50, 1000, 2000, 5000, and 10000 integers.
+    5 size files: 50, 1000, 2000, 5000, and 10000 integers.
     3 versions per file: random, decending, and ascending.
 
     Total of 15 files."""
@@ -34,6 +34,7 @@ def create_file(filename: str, size: int, ascending: bool, random: bool) -> None
         else:
           file.write(str(size - i) + '\n')
       
+
 def create_files() -> None:
   for size in [50, 1000, 2000, 5000, 10000]:
     create_file('random_' + str(size) + '.txt', size, True, True)
