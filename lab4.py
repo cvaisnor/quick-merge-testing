@@ -5,34 +5,33 @@
 # IDE: VS Code
 # Python Version: 3.8.10
 
-from partition_types import partition_left
-from quicksort_types import quicksort_first
-from utils import verify_sorted
+
+from user_modes import manual_input_mode, sort_file_mode
+from utils_inputs import get_user_mode
+
 
 def main():
   """This is the main function for the program."""
 
-  # array of random numbers
-  array = [1,7,2,5,9,3,4,6,8]
-  left=0
-  right=len(array)-1
+  while True:
 
-  # print original array
-  print("Original array:", array)
+    # Get the user's mode
+    user_mode = get_user_mode()
+    
+    if user_mode == 'F': # Sort File --------------------------------------------------------------
+      sort_file_mode()
+      continue
 
-  # quick sort the array using the first item as the pivot
-  sorted_array = quicksort_first(array, left, right)
+    elif user_mode == 'D': # Sort Directory (all the files at once, required for lab) -------------
+      pass
 
-  # print the sorted array
-  print('Sorted Array:', sorted_array)
+    elif user_mode == 'M': # Manually Enter An Array ----------------------------------------------
+      manual_input_mode()
+      continue
 
-  # verify the array is sorted
-  sorted = verify_sorted(sorted_array)
-
-  if sorted:
-    print("The array is sorted.")
-  else:
-    print("The array is not sorted.")
+    elif user_mode == 'Q': # Quit The Program -----------------------------------------------------
+      print('Exiting program...')
+      break
 
 
 if __name__ == '__main__':

@@ -1,6 +1,40 @@
 """This is the script containing the partitioning functions."""
 
 
+def partition_left(array: list, leftindex: int, rightindex: int) -> int:
+  """(Type 1) The pivot is selected as the first item of each partition.
+  Input: array, leftindex, rightindex
+  Output: new pivot index"""
+
+  pivot = array[leftindex]
+
+  i = leftindex + 1
+  for j in range(leftindex + 1, rightindex + 1):
+
+    if array[j] < pivot:
+      array[i], array[j] = array[j], array[i]
+      i += 1
+
+
+  leftendval = array[leftindex]
+  array[leftindex] = array[i-1]
+  array[i-1] = leftendval
+
+  return i - 1
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+
 def get_median(a: int, b: int, c: int) -> int:
   """This function returns the median of three values. Used in the partition_median function."""
   
@@ -12,28 +46,6 @@ def get_median(a: int, b: int, c: int) -> int:
 
   else:
     return c
-
-
-def partition_left(array: list, leftindex: int, rightindex: int) -> int:
-  """(Type 1) The pivot is selected as the first item of each partition.
-  Input: array, leftindex, rightindex
-  Output: new pivot index"""
-
-  pivot = array[leftindex]
-
-  i = leftindex + 1
-  for j in range(leftindex + 1, rightindex + 1):
-    if array[j] < pivot:
-      temp = array[j]
-      array[j] = array[i]
-      array[i] = temp
-      i += 1
-
-  leftendval = array[leftindex]
-  array[leftindex] = array[i-1]
-  array[i-1] = leftendval
-
-  return i - 1
 
 
 def partition_median(array: list, left: int, right: int) -> int:

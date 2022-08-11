@@ -1,6 +1,6 @@
 """This script contains the quicksort algorithm versions."""
 
-from partition_types import *
+from partition_types import partition_left, partition_median
 
 
 def quicksort_first(array, leftindex, rightindex):
@@ -17,6 +17,21 @@ def quicksort_first(array, leftindex, rightindex):
   return array
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ----------------------------------------------------------------------------------------------------------------------
 def quicksort_median(array, leftindex, rightindex):
   """This is the quicksort algorithm (Type 3) and uses the median-of-three as the pivot.
   This is the recursive implementation of the algorithm."""
