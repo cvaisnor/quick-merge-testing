@@ -22,7 +22,6 @@ def verify_sorted(array: list, comparison_count, swap_count):
     print('Error: the array is not sorted.')
 
 
-
 def verify_sorted_file(filename: str) -> bool:
   """This function verifies that the file is sorted in ascending order. 
   Input: filename

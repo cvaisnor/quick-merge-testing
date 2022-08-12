@@ -6,7 +6,7 @@
 # Python Version: 3.8.10
 
 
-from user_modes import manual_input_mode, sort_file_mode
+from user_modes import manual_input_mode, sort_file_mode, sort_directory_mode
 from utils_inputs import get_user_mode
 
 
@@ -23,7 +23,9 @@ def main():
       continue
 
     elif user_mode == 'D': # Sort Directory (all the files at once, required for lab) -------------
-      pass
+      sort_directory_mode()
+      
+      continue
 
     elif user_mode == 'M': # Manually Enter An Array ----------------------------------------------
       manual_input_mode()

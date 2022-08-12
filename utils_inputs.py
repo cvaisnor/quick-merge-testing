@@ -6,7 +6,7 @@ def get_user_mode():
 
   while True:
     print('Choose A Mode, The Options Are:')
-    print('(F) Sort an Individual File, (D) Sort All Directory Files')
+    print('(F) Sort an Individual File (.txt), (D) Sort All Directory Files (.txt)')
     print('(M) Manually Enter An array, or (Q) to Quit.')
     print()
     mode = input('Enter F, D, M, or Q: ')
@@ -17,7 +17,7 @@ def get_user_mode():
       print()
       return mode
     elif mode == 'D':
-      print('You chose to sort the directory of files.')
+      print('You chose to sort the current directory files.')
       print()
       return mode
     elif mode == 'M':
@@ -116,7 +116,9 @@ def get_file_name(data_order: str, file_size: int) -> str:
 
 # function to read a file into an array
 def read_file(file_name: str) -> list:
-  """This function reads a file and returns an array of integers from the file."""
+  """This function reads a file and returns an array of integers from the file.
+  Input: file_name (from get_file_name)
+  Output: array"""
 
   with open(file_name, 'r') as f:
     array = f.readlines()
