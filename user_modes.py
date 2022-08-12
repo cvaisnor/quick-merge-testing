@@ -1,5 +1,6 @@
 """This script contains the modes for the program."""
 
+from traceback import print_tb
 from quicksort_types import quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4
 from verifications import verify_sorted
 from utils_inputs import get_file_version_size, get_file_name, read_file
@@ -11,20 +12,17 @@ def manual_input_mode():
   print()
   user_input = user_input.split() # split the string into a list of strings
   unsorted_input = [int(i) for i in user_input] # list comprehension, convert string to int
-  print('The unsorted array is:', unsorted_input)
 
-  # sort the array  
-  sorted_input, comparison_count, swap_count = quicksort_type1(unsorted_input)
+  # sort the array using each of the sorting algorithms
+  list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4]
   
-  verify = verify_sorted(sorted_input)
-  if verify:
-    print('The sorted array is:', sorted_input)
-    print('The number of comparisons is:', comparison_count)
-    print('The number of swaps is:', swap_count)
-    print()
-  else:
-    print('The array is not sorted.')
-    print()
+  for sorting_function in list_sorting_function:
+    sorted_array, comparison_count, swap_count = sorting_function(unsorted_input)
+    print(f'{sorting_function.__name__}')
+    verify_sorted(sorted_array, comparison_count, swap_count)
+
+  print('The sorted array is:', sorted_array)
+  print()
   return
 
 
@@ -32,24 +30,25 @@ def sort_file_mode():
   """This function prompts the user for a file to sort."""
 
   # prompt the user for the file version and size
-  data_order, file_size = get_file_version_size() # (1: Ascending, 2: Decending, 3: Random), (50, 1000, 2000, 5000, 10000)
+  data_order, file_size = get_file_version_size() # (Ascending, Decending, Random), (50, 1000, 2000, 5000, 10000)
   file_name = get_file_name(data_order, file_size)
   
   # read the file into an array
   array_from_file = read_file(file_name)
 
-  # sort the array
-  sorted_array, comparison_count, swap_count = quicksort_type1(array_from_file)
+  if len(array_from_file) <=50:
+    print('The array is:', array_from_file)
+
+  # sort the array using each of the sorting algorithms
+  list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4]
   
-  verify_sorted(sorted_array) # verify the array is sorted
-  if verify_sorted(sorted_array):
-    print('The array is sorted.')
-    print('The number of comparisons is:', comparison_count)
-    print('The number of swaps is:', swap_count)
-    if len(sorted_array) <= 50:
-      print('The sorted array is:', sorted_array)
+  for sorting_function in list_sorting_function:
+    sorted_array, comparison_count, swap_count = sorting_function(array_from_file)
+    print(f'{sorting_function.__name__}')
+    verify_sorted(sorted_array, comparison_count, swap_count)
+  
+  if len(sorted_array) <= 50:
+    print('The sorted array is:', sorted_array)
     print()
-  else:
-    print('The array is not sorted.')
-    print()
+
   return

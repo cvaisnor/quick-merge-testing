@@ -66,22 +66,27 @@ def get_file_version_size() -> tuple:
     file_size = file_size.upper()
     if file_size == 'A':
       print('You chose 50.')
+      print()
       file_size = 50
       break
     elif file_size == 'B':
       print('You chose 1000.')
+      print()
       file_size = 1000
       break
     elif file_size == 'C':
       print('You chose 2000.')
+      print()
       file_size = 2000
       break
     elif file_size == 'D':
       print('You chose 5000.')
+      print()
       file_size = 5000
       break
     elif file_size == 'E':
       print('You chose 10000.')
+      print()
       file_size = 10000
       break
     else:

@@ -44,8 +44,8 @@ def insertion_sort(array: list, leftindex: int, rightindex: int) -> tuple:
       comparison_count += 1
       
       if array[j] < array[j-1]:
-        # swap the values
         swap_count += 1
+        # swap the values
         array[j], array[j-1] = array[j-1], array[j]
         j -= 1
       else:
@@ -53,18 +53,7 @@ def insertion_sort(array: list, leftindex: int, rightindex: int) -> tuple:
 
   return array, comparison_count, swap_count
 
-
-
-
-
-
-
-
-
-
-
 # ----------------------------------------------------------------------------------------------------------------------
-
 
 def get_median(a: int, b: int, c: int) -> int:
   """This function returns the median of three values. Used in the partition_median function."""
@@ -79,35 +68,37 @@ def get_median(a: int, b: int, c: int) -> int:
     return c
 
 
-def partition_median(array: list, left: int, right: int) -> int:
-  """(Type 3) This function partitions the array using the median-of-three as the pivot."""
+def partition_median(array: list, leftindex: int, rightindex: int) -> int:
+  """(Type 4) This function partitions the array using the median-of-three as the pivot."""
   
-  left = array[left]
-  right = array[right-1]
-  length = right - left
-  
-  if length % 2 == 0:
-    middle = array[left + length/2 - 1]
-  else:
-    middle = array[left + length/2]
+  comparison_count = 0
+  swap_count = 0
 
-  pivot = get_median(left, right, middle)
+  middle = (leftindex + rightindex) // 2
 
-  pivotindex = array.index(pivot) #only works if all values in array unique
+  pivot = get_median(array[leftindex], array[rightindex], array[middle])
 
-  array[pivotindex] = array[left]
-  array[left] = pivot
+  pivot_index = array.index(pivot) # get the index of the pivot
 
-  i = left + 1
-  for j in range(left + 1, right + 1):
+  array[pivot_index] = array[leftindex]
+  array[leftindex] = pivot # swap pivot with first item in array
+  swap_count += 1
+
+  i = leftindex + 1
+  for j in range(leftindex + 1, rightindex + 1):
+    # keep track of comparisons
+    comparison_count += 1
+
     if array[j] < pivot:
-      temp = array[j]
-      array[j] = array[i]
-      array[i] = temp
+      # keep track of swaps
+      swap_count += 1
+      array[i], array[j] = array[j], array[i]
       i += 1
 
-  leftendval = array[left]
-  array[left] = array[i-1]
-  array[i-1] = leftendval
-  return i - 1 
+  array[leftindex], array[i-1] = array[i-1], array[leftindex]
+  swap_count += 1
+
+  pivot_index = i - 1
+
+  return pivot_index, comparison_count, swap_count
 
