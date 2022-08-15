@@ -2,7 +2,9 @@
 
 
 def get_user_mode():
-  """This function prompts the user for which mode to run the program in."""
+  """This function prompts the user for which mode to run the program in.
+  Input: None
+  Output: mode"""
 
   while True:
     print('Choose A Mode, The Options Are:')
@@ -34,7 +36,9 @@ def get_user_mode():
 
 
 def get_file_version_size() -> tuple:
-  """This function prompts the user for which file version and size to sort."""
+  """This function prompts the user for which file version and size to sort.
+  Input: None
+  Output: data_order, file_size"""
 
   while True:
     print("There are 3 data orders and 5 file sizes to sort choose from.")
