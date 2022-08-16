@@ -85,6 +85,7 @@ def sort_directory_mode():
 
       if len(array_from_file) <=50: # only print the array if it is less than 50 elements
         print('The array is:', array_from_file)
+        print()
   
       # sort the array using each of the sorting algorithms
       list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4]
@@ -94,9 +95,9 @@ def sort_directory_mode():
         print(f'{sorting_function.__name__}')
         verify_sorted(sorted_array, comparison_count, swap_count)
 
-        if len(sorted_array) <= 50: # only print the array if it is less than 50 elements
-          print('The sorted array is:', sorted_array)
-          print()
+      if len(sorted_array) <= 50: # only print the array if it is less than 50 elements
+        print('The sorted array is:', sorted_array)
+        print()
         
       print('Moving to next file...')
       print('------------------------------------------------------')
