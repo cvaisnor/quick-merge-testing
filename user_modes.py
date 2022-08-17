@@ -84,10 +84,10 @@ def sort_directory_mode():
   # open input directory
   input_directory = os.path.join(os.getcwd(), 'input_files')
 
-  file_names = os.listdir(input_directory) # get the list of files in the directory
+  file_names = os.listdir(input_directory) # get the list of files in the input directory
   file_names.sort(key=sort_filenames) # sort the list of files by the file name
 
-  for file_name in file_names: # loop through all the files in the directory
+  for file_name in file_names: # loop through all the files in the input directory
     
     if file_name.endswith('.txt'): # only sort text files
 
