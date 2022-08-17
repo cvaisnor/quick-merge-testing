@@ -123,8 +123,12 @@ def read_file(file_name: str) -> list:
   """This function reads a file and returns an array of integers from the file.
   Input: file_name (from get_file_name)
   Output: array"""
+  import os
 
-  with open(file_name, 'r') as f:
+  # open input directory
+  input_directory = os.path.join(os.getcwd(), 'input_files')
+
+  with open(input_directory + '/' + file_name, 'r') as f:
     array = f.readlines()
     array = [int(i) for i in array]
   return array
