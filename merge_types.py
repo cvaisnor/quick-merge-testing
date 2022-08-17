@@ -37,21 +37,24 @@ def merge_sort(array: list) -> list:
   if len(array) <= 1:
     return array
 
-  # initialize the left and right arrays
-  left_array = []
-  right_array = []
+  k = 1
 
-  # loop through the array and split it into two halves
-  for i in range(len(array)):
+  while k < len(array):
     
-    if i < len(array) / 2: 
-      left_array.append(array[i])
-    else:
-      right_array.append(array[i])
-
-  # sort the left and right arrays iteratively
-  left_array = merge_sort(left_array)
-  right_array = merge_sort(right_array)
-
-  # merge the left and right arrays
-  return merge(left_array, right_array)
+    # divide the array into k-sized subarrays
+    subarrays = []
+    for i in range(0, len(array), k):
+      print('i: ', i)
+      subarrays.append(array[i:i+k])
+      print('subarrays: ', subarrays)
+  
+    # merge the subarrays
+    array = []
+    for subarray in subarrays:
+      print('subarray to merge: ', subarray)
+      array = merge(array, subarray)
+    
+    k *= 2
+    print('k: ', k)
+  
+  return array
