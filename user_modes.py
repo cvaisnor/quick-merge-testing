@@ -21,10 +21,10 @@ def sort_file(file_name: str) -> None:
   for sorting_function in list_sorting_function:
     sorted_array, comparison_count, swap_count = sorting_function(array_from_file)
     
-    with open('comparing_sorts.csv', 'a') as f:
-      # per line, write: size, sorting type, comparison_count, swap_count
-      order, size = sort_filenames(file_name)
-      f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
+    # with open('comparing_sorts.csv', 'a') as f:
+    #   # per line, write: size, sorting type, comparison_count, swap_count
+    #   order, size = sort_filenames(file_name)
+    #   f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
     
     print(f'{sorting_function.__name__}')
     verify_sorted(sorted_array, comparison_count, swap_count)
