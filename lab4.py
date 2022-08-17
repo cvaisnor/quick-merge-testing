@@ -15,8 +15,8 @@ def main():
 
   while True:
 
-    print('Input files must be in input_files folder.')
-    print('Output files will be written to output_files folder.')
+    print('Input files must be in /input_files.')
+    print('Output files are written to /output_files.')
     print()
 
     # Get the user's mode
@@ -40,10 +40,8 @@ def main():
 
 
 if __name__ == '__main__':
-  print("This is the main module for Lab 4.")
+  print("Lab 4 - Testing/Comparing Sorting Types.")
   print('Programmer: Chris Vaisnor')
-  print('Python Version: 3.8.10')
-  print()
   print('------------------------------------------------------------')
   print()
 

@@ -22,21 +22,6 @@ def verify_sorted(array: list, comparison_count, swap_count):
     print('Error: the array is not sorted.')
 
 
-def verify_sorted_file(filename: str) -> bool:
-  """This function verifies that the file is sorted in ascending order. 
-  Input: filename
-  Output: True if sorted, False if not sorted"""
-
-  list = []
-
-  with open(filename, 'r') as file:
-    array = file.readlines()
-    for i in range(len(array) - 1):
-      list.append(int(array[i]))
-
-  return verify_sorted(list)
-
-
 def write_to_file(file_name: str, array: list, sorting_function) -> None:
   """This function writes the sorted array to a file in the output directory. 
   It is only used for files up to 50 elements.

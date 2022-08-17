@@ -1,0 +1,5 @@
+size,sorting_type,comparison_count,swap_count
+50, quicksort, 49, 20
+100, quicksort2, 99, 40
+1000, quicksort3, 999, 800
+10000, quicksort4, 9999, 16000
