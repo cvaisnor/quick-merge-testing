@@ -40,10 +40,6 @@ def sort_file_mode():
   print(f'Sorting {file_name}')
   print()
 
-  if len(array_from_file) <=50: # only print the array if it is less than 50 elements
-    print('The array is:', array_from_file)
-    print()
-
   # sort the array using each of the sorting algorithms
   list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4]
   
@@ -51,14 +47,13 @@ def sort_file_mode():
     sorted_array, comparison_count, swap_count = sorting_function(array_from_file)
     print(f'{sorting_function.__name__}')
     verify_sorted(sorted_array, comparison_count, swap_count)
-    
-    if len(sorted_array) <= 50: # only write to file if less than or equal to 50 elements
-      write_to_file(file_name, sorted_array, sorting_function) # write to file
+    write_to_file(file_name, sorted_array, sorting_function) # write to file
       
   if len(sorted_array) <= 50: # only print the array if it is less than 50 elements
+    print('The input array is:', array_from_file)
+    print()
     print('The sorted array is:', sorted_array)
     print()
-  
   return
 
 
@@ -95,10 +90,6 @@ def sort_directory_mode():
       print()
 
       array_from_file = read_file(file_name) # read the file into an array
-
-      if len(array_from_file) <=50: # if less than or equal to 50 elements, print the array
-        print('The array is:', array_from_file) 
-        print()
   
       # sort the array using each of the sorting algorithms
       list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4]
@@ -107,12 +98,13 @@ def sort_directory_mode():
         sorted_array, comparison_count, swap_count = sorting_function(array_from_file)
         print(f'{sorting_function.__name__}')
         verify_sorted(sorted_array, comparison_count, swap_count)
-        
-        if len(sorted_array) <= 50: # if less than or equal to 50 elements
-          write_to_file(file_name, sorted_array, sorting_function) # write to file in output directory
+        write_to_file(file_name, sorted_array, sorting_function) # write to file
         
       if len(sorted_array) <= 50:
-        print('The sorted array is: ', sorted_array) # print to console
+        print('The input array is:', array_from_file)
+        print()
+        print('The sorted array is: ', sorted_array)
+        print()
         
       print('Moving to next file...')
       print('------------------------------------------------------')

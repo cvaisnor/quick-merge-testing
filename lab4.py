@@ -15,6 +15,10 @@ def main():
 
   while True:
 
+    print('Input files must be in input_files folder.')
+    print('Output files will be written to output_files folder.')
+    print()
+
     # Get the user's mode
     user_mode = get_user_mode()
     
@@ -24,7 +28,6 @@ def main():
 
     elif user_mode == 'D': # Sort Directory (all the files at once, required for lab) -------------
       sort_directory_mode()
-      
       continue
 
     elif user_mode == 'M': # Manually Enter An Array ----------------------------------------------
@@ -39,9 +42,9 @@ def main():
 if __name__ == '__main__':
   print("This is the main module for Lab 4.")
   print('Programmer: Chris Vaisnor')
-  print('IDE: VS Code')
   print('Python Version: 3.8.10')
   print()
   print('------------------------------------------------------------')
+  print()
 
   main()
