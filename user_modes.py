@@ -20,6 +20,12 @@ def sort_file(file_name: str) -> None:
   
   for sorting_function in list_sorting_function:
     sorted_array, comparison_count, swap_count = sorting_function(array_from_file)
+    
+    with open('comparing_sorts.csv', 'a') as f:
+      # per line, write: size, sorting type, comparison_count, swap_count
+      order, size = sort_filenames(file_name)
+      f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
+    
     print(f'{sorting_function.__name__}')
     verify_sorted(sorted_array, comparison_count, swap_count)
     write_to_file(file_name, sorted_array, sorting_function) # write to file
@@ -39,19 +45,20 @@ def manual_input_mode():
   user_input = user_input.split() # split the string into a list of strings
   unsorted_input = [int(i) for i in user_input] # list comprehension, convert string to int
 
-  # sort the array using natural merge sort
-  sorted_array = merge_sort(unsorted_input)
-
-  # # sort the array using each of the sorting algorithms
-  # list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4, merge_sort]
+  # sort the array using each of the sorting algorithms
+  list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4, merge_sort]
   
-  # for sorting_function in list_sorting_function:
-  #   sorted_array, comparison_count, swap_count = sorting_function(unsorted_input)
-  #   print(f'{sorting_function.__name__}')
-  #   verify_sorted(sorted_array, comparison_count, swap_count)
-
-  print('The sorted array is:', sorted_array)
-  print()
+  for sorting_function in list_sorting_function:
+    sorted_array, comparison_count, swap_count = sorting_function(unsorted_input)
+    print(f'{sorting_function.__name__}')
+    verify_sorted(sorted_array, comparison_count, swap_count)
+  
+  if len(sorted_array) <= 50: # only if less than 50 elements
+    print('The input array is:', unsorted_input[::-1])
+    print()
+    print('The sorted array is:', sorted_array)
+    print()
+  
   return
 
 
