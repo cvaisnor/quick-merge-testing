@@ -15,18 +15,20 @@ def sort_file(file_name: str) -> None:
 
   array_from_file = read_file(file_name) # read the file into an array
 
+
   # sort the array using each of the sorting algorithms
   list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4, merge_sort]
   
   for sorting_function in list_sorting_function:
-    sorted_array, comparison_count, swap_count = sorting_function(array_from_file)
-    
+    array_from_file_copy = array_from_file.copy() # copy the array
+    sorted_array, comparison_count, swap_count = sorting_function(array_from_file_copy) ### BIG ERROR, THIS IS UPDATING ARRAY_FROM_FILE IN PLACE ###
+
     # Only need the directory ouput table once:
     # lines to append to the output csv file
-    # with open('comparing_sorts.csv', 'a') as f:
-    #   # per line, write: size, sorting type, comparison_count, swap_count
-    #   order, size = sort_filenames(file_name)
-    #   f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
+    with open('comparing_sorts_v2.csv', 'a') as f:
+      # per line, write: size, sorting type, comparison_count, swap_count
+      order, size = sort_filenames(file_name)
+      f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
     
     print(f'{sorting_function.__name__}')
     verify_sorted(sorted_array, comparison_count, swap_count)
