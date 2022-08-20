@@ -21,7 +21,7 @@ def sort_file(file_name: str) -> None:
   
   for sorting_function in list_sorting_function:
     array_from_file_copy = array_from_file.copy() # copy the array
-    sorted_array, comparison_count, swap_count = sorting_function(array_from_file_copy) ### BIG ERROR, THIS IS UPDATING ARRAY_FROM_FILE IN PLACE ###
+    sorted_array, comparison_count, swap_count = sorting_function(array_from_file_copy)
 
     # Only need the directory ouput table once:
     # lines to append to the output csv file
