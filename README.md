@@ -1,10 +1,10 @@
 # Lab 4 - Testing Quicksort / Merge Sort
 
-Programmer: Chris Vaisnor
+### Programmer: Chris Vaisnor
 
-Python Verison: 3.9.7
+### Python Verison: 3.9.7
 
-IDE: VSCode and PyCharm
+### IDE'S Used: VSCode and PyCharm
 
 __Note:__ A Python virtual environment is located in /env. This venv contains the libraries used in the manipulation of the output .csv table used in the 'comparing_sorts.ipynb' file. I wanted to have more control of the graphing and table manipulation characteristics, compared to using Microsoft Excel.
 
