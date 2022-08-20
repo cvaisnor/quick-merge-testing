@@ -25,10 +25,10 @@ def sort_file(file_name: str) -> None:
 
     # Only need the directory ouput table once:
     # lines to append to the output csv file
-    with open('comparing_sorts_v2.csv', 'a') as f:
-      # per line, write: size, sorting type, comparison_count, swap_count
-      order, size = sort_filenames(file_name)
-      f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
+    # with open('comparing_sorts_v2.csv', 'a') as f:
+    #   # per line, write: size, sorting type, comparison_count, swap_count
+    #   order, size = sort_filenames(file_name)
+    #   f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
     
     print(f'{sorting_function.__name__}')
     verify_sorted(sorted_array, comparison_count, swap_count)
