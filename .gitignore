@@ -6,4 +6,5 @@ output_files
 test_files
 env
 .ipynb_checkpoints
+.idea
 
