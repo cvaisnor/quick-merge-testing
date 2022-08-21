@@ -24,7 +24,7 @@ def sort_file(file_name: str) -> None:
     sorted_array, comparison_count, swap_count = sorting_function(array_from_file_copy)
 
     # Only need the directory ouput table once:
-    # lines to append to the output csv file
+    # 
     # with open('comparing_sorts_v2.csv', 'a') as f:
     #   # per line, write: size, sorting type, comparison_count, swap_count
     #   order, size = sort_filenames(file_name)
