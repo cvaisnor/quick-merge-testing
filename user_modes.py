@@ -8,13 +8,12 @@ from utils_inputs import get_file_version_size, get_file_name, read_file
 
 
 def sort_file(file_name: str) -> None:
-
+  """This function takes in a file name and sorts the contents through each sorting method."""
   # print the file name
   print(f'Sorting {file_name}')
   print()
 
   array_from_file = read_file(file_name) # read the file into an array
-
 
   # sort the array using each of the sorting algorithms
   list_sorting_function = [quicksort_type1, quicksort_type2, quicksort_type3, quicksort_type4, merge_sort]
@@ -23,7 +22,7 @@ def sort_file(file_name: str) -> None:
     array_from_file_copy = array_from_file.copy() # copy the array
     sorted_array, comparison_count, swap_count = sorting_function(array_from_file_copy)
 
-    # Only need the directory ouput table once:
+    # Only need the directory output table once:
     # 
     # with open('comparing_sorts_v2.csv', 'a') as f:
     #   # per line, write: size, sorting type, comparison_count, swap_count
@@ -70,7 +69,7 @@ def sort_file_mode():
   """This function prompts the user for a file to sort."""
 
   # prompt the user for the file version and size
-  data_order, file_size = get_file_version_size() # (Ascending, Decending, Random), (50, 1000, 2000, 5000, 10000)
+  data_order, file_size = get_file_version_size() # (Ascending, Descending, Random), (50, 1000, 2000, 5000, 10000)
   file_name = get_file_name(data_order, file_size)
   sort_file(file_name) # sort the file
   return
@@ -86,7 +85,7 @@ def sort_filenames(file_name: str) -> tuple:
     size = size.split('.')[0] # get the file size from the file name
     return order, int(size)
   else:
-    return ('', 0)
+    return '', 0
 
 
 def sort_directory_mode():

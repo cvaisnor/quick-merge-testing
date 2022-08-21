@@ -117,5 +117,3 @@ def quicksort_type4(array: list) -> tuple:
       continue # do nothing
 
   return array, comparison_count, swap_count
-
-

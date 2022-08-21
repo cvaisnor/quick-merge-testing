@@ -1,7 +1,7 @@
-"""This script contains the Merge Algoritm. This is an iterative and linked-list based implementation."""
+"""This script contains the Merge Algorithm. This is an iterative and linked-list based implementation."""
 
 
-def merge(array, left_index, middle_index, right_index) -> list:
+def merge(array, left_index, middle_index, right_index) -> tuple:
   """This function merges two arrays into one.
   Input: array, left_index, middle_index, right_index
   Output: merged array"""
@@ -37,7 +37,7 @@ def merge(array, left_index, middle_index, right_index) -> list:
   return merged_array, comparison_count
 
 
-def merge_sort(array: list) -> list:
+def merge_sort(array: list) -> tuple:
   """This function sorts an array using the natural merge algorithm.
   This is an iterative implementation of the merge sort algorithm."""
 
@@ -50,7 +50,7 @@ def merge_sort(array: list) -> list:
       
       left_index, middle_index, right_index = i, min(i+k-1, len(array)-1), min(i+2*k-1, len(array)-1)
 
-      # merge the subarrays into one array
+      # merge the sub-arrays into one array
       merged_array, merged_comparison_count = merge(array, left_index, middle_index, right_index)
       comparison_count += merged_comparison_count
 

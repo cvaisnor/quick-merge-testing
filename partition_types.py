@@ -1,18 +1,18 @@
 """This is the script containing the partitioning functions."""
 
 
-def partition_left(array: list, leftindex: int, rightindex: int) -> tuple:
+def partition_left(array: list, left_index: int, right_index: int) -> tuple:
   """(Type 1) The pivot is selected as the first item of each partition.
-  Input: array, leftindex, rightindex
+  Input: array, left_index, right_index
   Output: new pivot index"""
 
   comparison_count = 0
   swap_count = 0
 
-  pivot = array[leftindex]
+  pivot = array[left_index]
 
-  i = leftindex + 1
-  for j in range(leftindex + 1, rightindex + 1):
+  i = left_index + 1
+  for j in range(left_index + 1, right_index + 1):
     # keep track of comparisons
     comparison_count += 1
 
@@ -22,7 +22,7 @@ def partition_left(array: list, leftindex: int, rightindex: int) -> tuple:
       array[i], array[j] = array[j], array[i]
       i += 1
 
-  array[leftindex], array[i-1] = array[i-1], array[leftindex]
+  array[left_index], array[i - 1] = array[i - 1], array[left_index]
   swap_count += 1
 
   pivot_index = i - 1
@@ -30,16 +30,16 @@ def partition_left(array: list, leftindex: int, rightindex: int) -> tuple:
   return pivot_index, comparison_count, swap_count
 
 
-def insertion_sort(array: list, leftindex: int, rightindex: int) -> tuple:
+def insertion_sort(array: list, left_index: int, right_index: int) -> tuple:
   """This function sorts the array using the insertion sort algorithm.
   This is only used for the quicksort algorithm Type 2 and Type 3."""
   
   comparison_count = 0
   swap_count = 0
   
-  for i in range(leftindex + 1, rightindex + 1):
+  for i in range(left_index + 1, right_index + 1):
     j = i
-    while j > leftindex:
+    while j > left_index:
       # keep track of comparisons
       comparison_count += 1
       
@@ -58,7 +58,7 @@ def insertion_sort(array: list, leftindex: int, rightindex: int) -> tuple:
 def get_median(a: int, b: int, c: int) -> int:
   """This function returns the median of three values. Used in the partition_median function."""
   
-  if ( a - b) * (c - a) >= 0:
+  if (a - b) * (c - a) >= 0:
     return a
 
   elif (b - a) * (c - b) >= 0:
@@ -68,24 +68,24 @@ def get_median(a: int, b: int, c: int) -> int:
     return c
 
 
-def partition_median(array: list, leftindex: int, rightindex: int) -> int:
+def partition_median(array: list, left_index: int, right_index: int) -> tuple:
   """(Type 4) This function partitions the array using the median-of-three as the pivot."""
   
   comparison_count = 0
   swap_count = 0
 
-  middle = (leftindex + rightindex) // 2
+  middle = (left_index + right_index) // 2
 
-  pivot = get_median(array[leftindex], array[rightindex], array[middle])
+  pivot = get_median(array[left_index], array[right_index], array[middle])
 
   pivot_index = array.index(pivot) # get the index of the pivot
 
-  array[pivot_index] = array[leftindex]
-  array[leftindex] = pivot # swap pivot with first item in array
+  array[pivot_index] = array[left_index]
+  array[left_index] = pivot # swap pivot with first item in array
   swap_count += 1
 
-  i = leftindex + 1
-  for j in range(leftindex + 1, rightindex + 1):
+  i = left_index + 1
+  for j in range(left_index + 1, right_index + 1):
     # keep track of comparisons
     comparison_count += 1
 
@@ -95,10 +95,9 @@ def partition_median(array: list, leftindex: int, rightindex: int) -> int:
       array[i], array[j] = array[j], array[i]
       i += 1
 
-  array[leftindex], array[i-1] = array[i-1], array[leftindex]
+  array[left_index], array[i - 1] = array[i - 1], array[left_index]
   swap_count += 1
 
   pivot_index = i - 1
 
   return pivot_index, comparison_count, swap_count
-
