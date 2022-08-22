@@ -2,7 +2,7 @@
 
 # Lab 4: Sorting Methods Testing
 # Programmer: Chris Vaisnor
-# IDE: VS Code
+# IDE: VS Code / PyCharm
 # Python Version: 3.8.10
 
 
