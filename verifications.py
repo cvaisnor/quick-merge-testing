@@ -23,7 +23,7 @@ def verify_sorted(array: list, comparison_count, swap_count) -> None:
 
 
 def write_to_file(file_name: str, array: list, sorting_function) -> None:
-  """This function writes the sorted array to a file in the output directory. 
+  """This function writes the sorted array to a file in the output directory.
   It is only used for files up to 50 elements.
   Input: file_name, sorted array, sorting_function.
   Output: None"""
@@ -36,7 +36,7 @@ def write_to_file(file_name: str, array: list, sorting_function) -> None:
     if not os.path.exists('output_files'):
       os.makedirs('output_files')
 
-    # remove the .txt from the file_name 
+    # remove the .txt from the file_name
     file_name = file_name.split('.')[0]
     
     # add the sorting function to the file name

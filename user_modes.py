@@ -38,7 +38,6 @@ def sort_file(file_name: str) -> None:
     print()
     print('The sorted array is:', sorted_array)
     print()
-  return
 
 def manual_input_mode():
   """This function prompts the user for an array to sort."""
@@ -55,14 +54,12 @@ def manual_input_mode():
     sorted_array, comparison_count, swap_count = sorting_function(unsorted_input)
     print(f'{sorting_function.__name__}')
     verify_sorted(sorted_array, comparison_count, swap_count)
-  
+
   if len(sorted_array) <= 50: # only if less than 50 elements
     print('The input array is:', unsorted_input[::-1])
     print()
     print('The sorted array is:', sorted_array)
     print()
-  
-  return
 
 
 def sort_file_mode():
@@ -72,7 +69,6 @@ def sort_file_mode():
   data_order, file_size = get_file_version_size() # (Ascending, Descending, Random), (50, 1000, 2000, 5000, 10000)
   file_name = get_file_name(data_order, file_size)
   sort_file(file_name) # sort the file
-  return
 
 
 def sort_filenames(file_name: str) -> tuple:
@@ -105,4 +101,3 @@ def sort_directory_mode():
       print('Moving to next file...')
       print('------------------------------------------------------')
       print()
-  return
