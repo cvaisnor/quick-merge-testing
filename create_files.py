@@ -45,7 +45,7 @@ def create_files() -> None:
 def check_for_duplicates_in_file(filename: str) -> bool:
   """This function checks for duplicates in a file."""
 
-  with open(filename, 'r') as file:
+  with open('input_files/' + filename, 'r') as file:
     array = file.readlines()
     for i in range(len(array)):
       for j in range(i + 1, len(array)):
@@ -62,11 +62,11 @@ def make_files_with_duplicates():
 
 
 # checking for duplicates in the test files
-for size in [50, 1000, 2000, 5000, 10000]:
-  if check_for_duplicates_in_file('test_random_' + str(size) + '.txt'):
-    print('test_random_' + str(size) + '.txt has duplicates')
-  else:
-    print('test_random_' + str(size) + '.txt has no duplicates')
+# for size in [50, 1000, 2000, 5000, 10000]:
+#   if check_for_duplicates_in_file('test_random_' + str(size) + '.txt'):
+#     print('test_random_' + str(size) + '.txt has duplicates')
+#   else:
+#     print('test_random_' + str(size) + '.txt has no duplicates')
 
 # checking for duplicates in all other 'random' files
 for size in [50, 1000, 2000, 5000, 10000]:
