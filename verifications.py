@@ -1,7 +1,7 @@
 """This script contains the verification functions for the algorithms."""
 
 
-def verify_sorted(array: list, comparison_count, swap_count):
+def verify_sorted(array: list, comparison_count, swap_count) -> None:
   """This function verifies that the array is sorted in ascending order. """
 
   sorted = True
