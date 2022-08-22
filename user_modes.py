@@ -24,7 +24,7 @@ def sort_file(file_name: str) -> None:
 
     # Only need the directory output table once:
     # 
-    # with open('comparing_sorts_v2.csv', 'a') as f:
+    # with open('comparing_sorts.csv', 'a') as f:
     #   # per line, write: size, sorting type, comparison_count, swap_count
     #   order, size = sort_filenames(file_name)
     #   f.write(f'{order},{size},{sorting_function.__name__},{comparison_count},{swap_count}\n')
@@ -76,7 +76,7 @@ def sort_file_mode():
 
 
 def sort_filenames(file_name: str) -> tuple:
-  """This function parses the file name.
+  """This function parses the file name. This is used in the sort_directory_mode function.
   Input: file_name
   Output: tuple (order, size)"""
 
