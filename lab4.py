@@ -3,7 +3,7 @@
 # Lab 4: Sorting Methods Testing
 # Programmer: Chris Vaisnor
 # IDE: VS Code / PyCharm
-# Python Version: 3.8.10
+# Python Version: 3.9.7
 
 
 from user_modes import manual_input_mode, sort_file_mode, sort_directory_mode
