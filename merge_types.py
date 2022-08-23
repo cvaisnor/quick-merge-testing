@@ -23,7 +23,7 @@ def merge(array, left_index, middle_index, right_index) -> tuple:
     else:
       merged_array.append(array[pointer_2])
       pointer_2 += 1
- 
+  
   # add the remaining elements of the array
   while pointer_1 <= middle_index:
     merged_array.append(array[pointer_1])
@@ -47,7 +47,6 @@ def merge_sort(array: list) -> tuple:
 
   while k < len(array):
     for i in range(0, len(array), k*2):
-      
       left_index, middle_index, right_index = i, min(i+k-1, len(array)-1), min(i+2*k-1, len(array)-1)
 
       # merge the sub-arrays into one array
