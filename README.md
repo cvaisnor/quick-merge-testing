@@ -6,9 +6,9 @@
 
 ### IDE'S Used: VSCode and PyCharm
 
-__Note:__ A Python virtual environment is located in /env. This venv contains the libraries used in the manipulation of the output .csv table used in the 'comparing_sorts.ipynb' file. I wanted to have more control of the graphing and table manipulation characteristics, compared to using Microsoft Excel.
+__Note:__ A Python virtual environment was used for manipulating the output of sorting the input_files directory. I wanted to have more control of the graphing and table manipulation characteristics, compared to using Microsoft Excel. I will include the libraries used in that environment in the requirements.txt file. 
 
-This venv is __NOT__ needed for 'lab4.py'. Any Python 3 version should work fine for running the program.
+The virtual environment is **NOT** needed for running the program, **lab4.py**.
 
 ### How to Use:
 The program reads .txt files in the input_files folder. Each .txt file must have one element(integer) per line with no leading or trailing spaces.
