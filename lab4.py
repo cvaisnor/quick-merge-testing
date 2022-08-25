@@ -8,6 +8,7 @@
 
 from user_modes import manual_input_mode, sort_file_mode, sort_directory_mode
 from utils_inputs import get_user_mode
+import timeit
 
 
 def main():
@@ -20,15 +21,19 @@ def main():
     print()
 
     # Get the user's mode
-    user_mode = get_user_mode()
+    # user_mode = get_user_mode()
+    user_mode = 'D'
     
     if user_mode == 'F': # Sort File --------------------------------------------------------------
       sort_file_mode()
       continue
 
     elif user_mode == 'D': # Sort Directory (all the files at once, required for lab) -------------
+      starttime = timeit.default_timer()
       sort_directory_mode()
-      continue
+      endtime = timeit.default_timer()
+      print('Time to sort all the files in seconds: ', endtime - starttime)
+      break
 
     elif user_mode == 'M': # Manually Enter An Array ----------------------------------------------
       manual_input_mode()
