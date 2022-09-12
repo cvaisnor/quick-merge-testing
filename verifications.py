@@ -2,7 +2,9 @@
 
 
 def verify_sorted(array: list, comparison_count, swap_count) -> None:
-  """This function verifies that the array is sorted in ascending order. """
+  """This function verifies that the array is sorted in ascending order.
+  Input: array, comparison_count, swap_count.
+  Output: None"""
 
   sorted = True
 
