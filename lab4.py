@@ -21,8 +21,7 @@ def main():
     print()
 
     # Get the user's mode
-    # user_mode = get_user_mode()
-    user_mode = 'D'
+    user_mode = get_user_mode()
     
     if user_mode == 'F': # Sort File --------------------------------------------------------------
       sort_file_mode()
